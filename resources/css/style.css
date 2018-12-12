@@ -7,6 +7,7 @@
 * {
     margin: 0;
     padding: 0;
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
 
@@ -133,6 +134,7 @@ a:visited {
     text-decoration: none;
     padding-bottom: 1px;
     border-bottom: 1px solid #e67e22;
+    -webkit-transition: border-bottom 0.2s, color 0.2s;
     transition: border-bottom 0.2s, color 0.2s;
 }
 
@@ -150,6 +152,7 @@ input[type=submit] {
     font-weight: 300;
     text-decoration: none;
     border-radius: 200px; /*makes the button smooth not rectangular*/
+    -webkit-transition: background-color 0.2s, border 0.2s, color 0.2s;
     transition: background-color 0.2s, border 0.2s, color 0.2s; 
 }
 
@@ -194,6 +197,7 @@ input[type=submit] {
 
 
 header {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.7)), to(rgba(0, 0, 0, 0.7))), url(img/hero.jpg);
     background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(img/hero.jpg);
     background-size: cover;
     background-position: center;
@@ -205,15 +209,27 @@ header {
     width: 1140px;
     top: 50%;
     left: 50%;
+    -webkit-transform: translate(-50%,-50%);
     transform: translate(-50%,-50%);/* centers the text box*/
 }
 
-.logo{
+.logo {
     height: 100px;
     width: auto;
     float: left;
     margin-top: 20px;
 }
+
+.logo-black{
+    display: none;
+    height: 50px;
+    width: auto;
+    float:left;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+/*Main navi*/
+
 
 .main-nav {
     float: right;
@@ -234,6 +250,7 @@ header {
     text-transform: uppercase;
     font-size: 90%;
     border-bottom: 2px solid transparent; /* makes border insivible until it is hovered over*/ 
+    -webkit-transition: border-bottom 0.2s; 
     transition: border-bottom 0.2s;
 }
 
@@ -241,6 +258,41 @@ header {
 .main-nav li a:active {
     border-bottom: 2px solid #e67e22;
 }
+
+/*mobile navi*/
+.mobile-nav-icon{
+    float: right;
+    margin-top: 30px;
+    cursor: pointer;
+    display: none;
+}
+
+.mobile-nav-icon i{
+    font-size: 200%;
+    color: #fff;
+}
+
+/*sticky navi*/
+.sticky {
+    position: fixed; /*navigation stays in the same spot when we scroll*/
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.98);
+    box-shadow:  0 2px 2px #efefef;/*search up how to use this */
+    z-index: 9999; /*defines the verticle stacking of elements   IN THIS CASE IT CASES THE STICKY TO OVERLAP ALL OF THE ELEMENTS BECAUSE IT HAS THE HIGHEST VALUE*/
+}
+
+.sticky .main-nav {margin-top: 18px;}
+
+.sticky .main-nav li a:link,
+.sticky .main-nav li a:visited {
+    padding: 16px 0;
+    color: #555;
+}
+
+.sticky .logo{display: none;}
+.sticky .logo-black{display: block;}
 
 /*---------------------------------------------------------*/
 /*      FEATURES              */
@@ -281,12 +333,17 @@ header {
     opacity: 0.7;
     width: 100%;
     height: auto;
+    -webkit-transform: scale(1.15);
     transform: scale(1.15);/*scales the image size to 115%*/
+    -webkit-transition: opacity 0.5s, -webkit-transform 0.5s;
+    transition: opacity 0.5s, -webkit-transform 0.5s;
     transition: transform 0.5s, opacity 0.5s;
+    transition: transform 0.5s, opacity 0.5s, -webkit-transform 0.5s;
     
 }
 
 .meal-photo img:hover {
+    -webkit-transform: scale(1.03);
     transform: scale(1.03);
     opacity: 1;
 }
@@ -399,6 +456,7 @@ header {
 .section-testimonials {
     width: 100%;
     height: auto;
+    background-image: -webkit-gradient(linear,left top, left bottom,from(rgba(0, 0, 0, 0.8)),to(rgba(0, 0, 0, 0.7))) ,url(img/back-customers.jpg);
     background-image: linear-gradient(rgba(0, 0, 0, 0.8),rgba(0, 0, 0, 0.7)) ,url(img/back-customers.jpg);
     background-size: cover;
 }
@@ -605,6 +663,7 @@ footer {
     text-decoration: none;
     border: 0;
     color: #888;
+    -webkit-transition: color 0.2s;
     transition: color 0.2s;
     
 }
@@ -623,6 +682,7 @@ footer {
 .ion-social-twitter,
 .ion-social-googleplus,
 .ion-social-instagram {
+    -webkit-transition: color 0.2s;
     transition: color 0.2s;
 }
 
@@ -648,3 +708,41 @@ footer p {
     font-size: 90%;
     margin-top: 20px;
 }
+
+
+/*---------------------------------------------------------*/
+/*      ANIMATIONS              */
+/*---------------------------------------------------------*/
+
+.js--wp1 {
+    opacity: 0;
+}
+
+.js--wp1.animated {
+    opacity: 1;
+}
+
+.js--wp2 {
+    opacity: 0;
+}
+
+.js--wp2.animated {
+    opacity: 1;
+}
+
+.js--wp3 {
+    opacity: 0;
+}
+
+.js--wp3.animated {
+    opacity: 1;
+}
+
+.js--wp4 {
+    opacity: 0;
+}
+
+.js--wp4.animated {
+    opacity: 1;
+}
+
